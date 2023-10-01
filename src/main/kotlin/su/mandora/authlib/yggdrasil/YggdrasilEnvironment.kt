@@ -9,4 +9,8 @@ enum class YggdrasilEnvironment(authHost: String, accountsHost: String, sessionH
     STAGING("https://yggdrasil-auth-staging.mojang.com", "https://api-staging.mojang.com", "https://yggdrasil-auth-session-staging.mojang.zone", "https://api-staging.minecraftservices.com");
 
     val environment = Environment.create(authHost, accountsHost, sessionHost, servicesHost, name)
+
+    companion object {
+        const val PROD_AUTH_HOST = "https://authserver.mojang.com" // Duplicate the auth host here so that you can access it at compile-time
+    }
 }
