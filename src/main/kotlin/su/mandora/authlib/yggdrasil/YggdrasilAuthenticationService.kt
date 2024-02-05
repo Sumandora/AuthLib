@@ -65,7 +65,6 @@ class YggdrasilAuthenticationService(private val proxy: Proxy, val clientToken: 
     }
 
     fun performPostRequest(url: URL, post: String, contentType: String): String {
-        println(post)
         val connection = url.openConnection(proxy) as HttpURLConnection
         connection.setConnectTimeout(15000)
         connection.setReadTimeout(15000)
@@ -77,7 +76,7 @@ class YggdrasilAuthenticationService(private val proxy: Proxy, val clientToken: 
 
         connection.outputStream.write(postAsBytes)
 
-        return connection.inputStream.readBytes().decodeToString().also { println(it) }
+        return connection.inputStream.readBytes().decodeToString()
     }
 
 }
